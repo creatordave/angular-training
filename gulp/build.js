@@ -1,6 +1,7 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    notify = require('gulp-notify');
 
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
@@ -60,7 +61,8 @@ gulp.task('html', ['wiredep', 'scripts', 'partials'], function () {
     }))
     .pipe(htmlFilter.restore())
     .pipe(gulp.dest('dist'))
-    .pipe($.size());
+    .pipe($.size())
+    .pipe(notify('All done!'));
 });
 
 gulp.task('images', function () {

@@ -92,7 +92,7 @@ Would you still like to know how to use impress.js?
 
 -->
 <link href="../bower_components/impress.js/css/impress-demo.css" rel="stylesheet" />
-
+<link href="../src/app/index.css" rel="stylesheet"/>
 </head>
 
 <!--
@@ -145,6 +145,30 @@ right around the corner of this tag ;)
 
 -->
 <div id="impress">
+  <div id="angular" class="step slide text-center" data-x="-2000" data-y="-1500">
+    <img src="assets/images/AngularJS.jpg" width="100%" alt="Angular Logo" style="margin-top:40px"/>
+  </div>
+
+  <div id="what-is-it" class="step slide" data-x="-1000" data-y="-1500">
+    <div>
+      <h1 class='medium-font-size'>What is it?</h1>
+      <ul class='normal-list'>
+        <li>Client side MV(C) framework</li>
+        <li>Made of separate modules</li>
+        <li>Started in 2009 with first stable version in June 2012</li>
+      </ul>
+    </div>
+    <div>
+      <h1 class='medium-font-size'>Projects built with AngularJS</h1>
+      <ul class='normal-list'>
+        <li>Youtube App on PS3</li>
+        <li>Vevo</li>
+        <li>MSNBC.com</li>
+        <li>Trailers for Netflix</li>
+        <li>Sky Store
+      </ul>
+    </div>
+  </div>
 
   <!--
 
@@ -163,13 +187,15 @@ right around the corner of this tag ;)
   It will not be rotated or scaled.
 
 -->
-<div id="bored" class="step slide" data-x="-1000" data-y="-1500">
+
+
+<!-- <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
   <q>Aren't you just <b>bored</b> with all those slides-based presentations?</q>
   <div data-ng-app>
     Hello {{input_name}}<br/>
     <input type="text" ng-model="input_name"/>
   </div>
-</div>
+</div> -->
 
 <!--
 
