@@ -32,3 +32,91 @@ ul.normal-list li{
 .medium-font-size{
   font-size:1.5em !important;
 }
+
+.tiny-font-size{
+  font-size:0.8em !important;
+}
+
+.align-center{
+  display:inline-block;
+  margin:0 auto;
+}
+
+.light-grey{
+  color:grey;
+}
+
+._asynchronous-programming{
+  -webkit-transition: 0.5s;
+  -moz-transition:    0.5s;
+  -ms-transition:     0.5s;
+  -o-transition:      0.5s;
+  transition:         0.5s;
+  opacity:0;
+}
+
+#final-prerequisite.present ._asynchronous-programming{
+  -webkit-transform: rotate(-2deg);
+  -moz-transform:    rotate(-2deg);
+  -ms-transform:     rotate(-2deg);
+  -o-transform:      rotate(-2deg);
+  transform:         rotate(-2deg);
+  opacity:1;
+
+  -webkit-transition-delay: 0.25s;
+  -moz-transition-delay:    0.25s;
+  -ms-transition-delay:     0.25s;
+  -o-transition-delay:      0.25s;
+  transition-delay:         0.25s;
+}
+
+.floating{
+  -webkit-animation-name: Floatingx;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-name: Floating;
+  -moz-animation-duration: 3s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+
+}
+
+@-webkit-keyframes Floatingx{
+  from {-webkit-transform:translate(0, 0px);}
+  65% {-webkit-transform:translate(0, 15px);}
+  to {-webkit-transform: translate(0, -0px);    }
+}
+
+@-moz-keyframes Floating{
+  from {-moz-transform:translate(0, 0px);}
+  65% {-moz-transform:translate(0, 15px);}
+  to {-moz-transform: translate(0, -0px);}
+}
+
+
+.scaling{
+  display:inline-block;
+  -webkit-animation-name: scalex;
+  -webkit-animation-duration:3s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:ease-in-out;
+  -moz-animation-name: scale;
+  -moz-animation-duration:3s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-timing-function:ease-in-out;
+}
+
+@-webkit-keyframes scalex{
+  from {-webkit-transform: scale(0.9);}
+  65% {-webkit-transform: scale(1.0);}
+  to {-webkit-transform: scale(0.9);}
+}
+
+@-moz-keyframes scale{
+  from {-moz-transform: scale(0.9);}
+  65% {-moz-transform: scale(1.0);}
+  to {-moz-transform: scale(0.9);}
+}
