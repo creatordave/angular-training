@@ -62,7 +62,7 @@ gulp.task('html', ['wiredep', 'scripts', 'partials'], function () {
     .pipe(htmlFilter.restore())
     .pipe(gulp.dest('dist'))
     .pipe($.size())
-    .pipe(notify('All done!'));
+    .pipe(notify({message: 'All done!', onLast: true}));
 });
 
 gulp.task('images', function () {
@@ -94,4 +94,6 @@ gulp.task('clean', function (done) {
   $.del(['.tmp', 'dist'], done);
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'misc']);
+gulp.task('build', ['html', 'images', 'fonts', 'misc'], function(){
+  console.log("S'all done y'all!!!");
+});
