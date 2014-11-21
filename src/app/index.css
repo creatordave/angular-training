@@ -14,7 +14,7 @@
 }
 
 .text-center{
-  text-algign:center;
+  text-algign:center !important;
 }
 
 ul.normal-list{

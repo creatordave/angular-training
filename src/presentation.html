@@ -92,6 +92,9 @@ right around the corner of this tag ;)
 <div id="impress">
   <div id="angular" class="step slide text-center" data-x="-2000" data-y="-1500">
     <img src="assets/images/AngularJS.jpg" width="100%" alt="Angular Logo" style="margin-top:40px"/>
+    <div class='text-center'>
+      <q>David Mifsud</q>
+    </div>
   </div>
 
   <div id="what-is-it" class="step slide" data-x="-1000" data-y="-1500">
@@ -154,7 +157,7 @@ right around the corner of this tag ;)
     <p class='light-grey tiny-font-size'>Why is it important?</p>
   </div>
 
-  <div id="everywhere" class='step' data-x="3825" data-y="2325" data-z="-3000" data-rotate="360" data-scale="1">
+  <div id="everywhere" class='step' data-x="2825" data-y="1325" data-z="-3000" data-rotate="360" data-scale="1">
     <q>&ldquo;It&rsquo;s everywhere,<br/>
       and it keeps on growing.&rdquo;</q>
   </div>
@@ -207,12 +210,31 @@ right around the corner of this tag ;)
   </div>
 
   <div id="its-important-i-tell-you" class="step" data-x="7600" data-y="2000" data-rotate="180" data-scale="0.5" data-rotate-y="90">
-    <p>&ldquo;&hellip;mastering asynchronous programing in JavaScript is a must for any serious HTML5 application developer&hellip;&rdquo;</p><br/>
+    <p>&ldquo;&hellip;mastering <span class='async-programming'>asynchronous programing</span> in <span class='js-3d'>JavaScript</span> is a must for any serious HTML5 <span class='app-3d'>application</span> <span class='dev-3d'>developer</span>&hellip;&rdquo;</p><br/>
     <small class="light-grey tiny-font-size">
       <a href="https://twitter.com/jeremychone">
         @jeremychone
       </a> &mdash; <a href="http://www.html5rocks.com/en/tutorials/async/deferred/">HTML 5 Rocks</a>
     </small>
+  </div>
+
+  <div id='promises' class='step' data-x="10000" data-y="-1000" data-scale="5">
+    <div class='text-center'>
+      <h1><b>Promises</b> <span class='light-grey'>&amp; Deferreds</span></h1>
+    </div>
+    <p class="_promise-description light-grey tiny-font-size">
+      a concept that has been around since 1976
+    </p>
+    <div class='light-grey tiny-font-size'><a href="http://en.wikipedia.org/wiki/Futures_and_promises" target="_blank">http://en.wiki&hellip;</a></div>
+  </div>
+
+  <div id='promising-promises' class='step slide' data-x='17000' data-y="-1000" data-scale="3">
+    <h2>What are these?</h2>
+    <ul class='normal-list'>
+      <li>A <b>Promise</b> is an object or value that is yet to have its value assigned</li>
+      <li>A <b>Deferred</b> is an object that has work, which is not yet finished.</li>
+    </ul>
+    <p>In JavaScript, these allow for asynchronous code to be executed in parallel to the normal synchronous code.</p>
   </div>
 
   <!--
@@ -357,10 +379,6 @@ You can of course rotate it around Z axis with `data-rotate-z` - it has exactly 
 as `data-rotate` (these two are basically aliases).
 
 -->
-<div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-  <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-  <span class="footnote">* beat that, prezi ;)</span>
-</div>
 
 <!--
 
@@ -377,9 +395,6 @@ These values are used by impress.js in CSS transformation functions, so for more
 CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
 
 -->
-<div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
-</div>
-
 </div>
 
 <!--
