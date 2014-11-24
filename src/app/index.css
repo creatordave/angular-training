@@ -120,3 +120,16 @@ ul.normal-list li{
   65% {-moz-transform: scale(1.0);}
   to {-moz-transform: scale(0.9);}
 }
+
+.slide-quote{
+  line-height: 1.2em !important;
+  width: 80% !important;
+  margin: 20px auto !important;
+  font-style: italic !important;
+  font-family: Georgia, 'Times', sans;
+}
+
+.slide-link{
+  color: dodgerblue !important;
+  text-decoration: underline !important;
+}

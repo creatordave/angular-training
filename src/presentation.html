@@ -36,8 +36,6 @@
     <link href="../bower_components/impress.js/css/impress-demo.css" rel="stylesheet" />
 <link href="../src/app/index.css" rel="stylesheet"/>
     <!-- endbuild -->
-
-
 </head>
 
 <!--
@@ -58,7 +56,7 @@ The class name on body element also depends on currently active presentation ste
 it can be found later, when `hint` element is being described.
 
 -->
-<body class="impress-not-supported">
+<body class="impress-not-supported" ng-app="trainingApp">
 
   <!--
   For example this fallback message is only visible when there is `impress-not-supported` class on body.
@@ -250,6 +248,112 @@ right around the corner of this tag ;)
       <li><a href="http://www.html5rocks.com/en/tutorials/es6/promises/" target="_blank">Native JavaScript promises</a></li>
     </ul>
   </div>
+
+  <div id='finally-we-can-start-angular' class='step slide' data-x='34000' data-y='20000' data-z='-50000' data-rotate='0' data-scale='1'>
+    <div>
+      <h3 data-ng-init="greetingModel = 'World'" class='medium-font-size'>Hello {{greetingModel}}, with Angular</h1>
+      <fieldset><input type='text' data-ng-model='greetingModel'/></fieldset>
+    </div>
+    <div>
+      <q class='tiny-font-size slide-quote'>&ldquo;One of the best features of Angular is the ability to separate concerns properly into their respective area.&rdquo;</q>
+      <div>
+        <xmp data-ng-non-bindable style='font-size: 0.5em;margin-left: -100px;'>
+            <div data-ng-app>
+              <!-- bootstrapps angular app on this div -->
+              <h3 data-ng-init="greetingModel = 'World'">
+                <!-- initializing an object model with value -->
+                Hello {{greetingModel}}, with Angular
+                <!-- curly braces indicating where model will be rendered -->
+              </h3>
+              <fieldset>
+                <input type='text' data-ng-model='greetingModel'/>
+                <!-- binding greetingModel to text input using ng-model -->
+              </fieldset>
+            </div>
+        </xmp>
+      </div>
+    </div>
+  </div>
+
+  <div id='bootstrapp-it' class='step slide' data-x='35000' data-y='20000' data-z='-50000' data-rotate='0' data-scale='1'>
+
+    <div>
+      <h2 data-ng-init="appModel = 'the first app'">
+        This is {{appModel}}
+      </h2>
+    </div>
+
+    <div>
+      <h2 data-ng-init="appModel2 = 'the second app'">
+        This is {{appModel2}}
+      </h2>
+    </div>
+
+    <q class='tiny-font-size slide-quote'>&ldquo;Can have multiple AngularJS apps bootstrapped in one page.&rdquo;</q>
+
+    <xmp data-ng-non-bindable style="font-size:0.5em;line-height:1.3em">
+      <div data-ng-app="firstApp">
+        <!-- bootstrapped 'firstApp' onto this div -->
+        <h2 data-ng-init="appModel = 'the first app'">
+          <!-- initialized appModel object with value 'the first app' -->
+          This is {{appModel}}
+          <!-- printing appModel value -->
+        </h2>
+      </div>
+
+      <div data-ng-app="secondApp">
+        <!-- Same thing as firstApp, but separate -->
+        <h2 data-ng-init="appModel = 'the second app'">
+          This is {{appModel}}
+        </h2>
+      </div>
+
+      <script>
+        //Modules are setup on the JavaScript side.
+        var firstApp = angular.module('firstApp',[]);
+        var secondApp = angular.module('secondApp'.[]);
+      </script>
+    </xmp>
+
+
+  </div>
+
+  <div id='manual-is-better' class='step slide' data-x='36000' data-y='20000' data-z='-50000' data-rotate='0' data-scale='1'>
+    <h3 class='medium-font-size'>Manually Bootstrapping an App</h3>
+    <q class='tiny-font-size slide-quote'>&ldquo;Sometimes, a manual bootstrap is required. This allows for more control as to when the app will be initialized.
+      &rdquo;</q>
+    <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em'>
+
+      <div id="my-awesome-app">
+        <!-- DOM comes first -->
+        <p>{{welcomeMessage}}</p>
+      </div>
+      <script src="http://code.angularjs.org/snapshot/angular.js"></script>
+      <!-- make sure angular library is loaded -->
+      <script>
+        var awesomeApp = angular.module('myAwesomeApp',[]);
+        //create angular app module, called 'myAwesomeApp'
+        awesomeApp.run(['$rootScope', function($rootScope){
+          //the run function will only be executed once on bootstrapp
+          $rootScope.welcomeMessage = "Greetings! Welcome to my awesome app!!";
+        }]);
+        //After pre-defining all modules, manual bootstrapping can start
+        angular.element(document).ready(function(){
+          //In this case, bootstrapping is triggered right after DOM is ready
+          var $element = angular.element('#my-awesome-app');
+          angular.bootstrap($element, ['myAwesomeApp']);
+        });
+      </script>
+    </xmp>
+    <a href="http://plnkr.co/edit/YZ06YzlYO2CaNqdnB1ul" class='slide-link' target="_blank">Demo</a>
+  </div>
+
+
+  <!-- references
+  https://docs.angularjs.org/guide/bootstrap
+
+  -->
+
 <!-- http://www.nczonline.net/blog/2010/01/05/interviewing-the-front-end-engineer/ -->
   <!--
 
@@ -525,6 +629,11 @@ is used in event handlers.
   })();
 
 </script>-->
+
+<script>
+  var trainingApp = angular.module('trainingApp',[]);
+
+</script>
 
 
 </body>

@@ -54,11 +54,11 @@ gulp.task('html', ['wiredep', 'scripts', 'partials'], function () {
     .pipe($.useref())
     .pipe($.revReplace())
     .pipe(htmlFilter)
-    .pipe($.minifyHtml({
-      empty: true,
-      spare: true,
-      quotes: true
-    }))
+    // .pipe($.minifyHtml({
+    //   empty: false,
+    //   spare: false,
+    //   quotes: true
+    // }))
     .pipe(htmlFilter.restore())
     .pipe(gulp.dest('dist'))
     .pipe($.size())
