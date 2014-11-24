@@ -147,7 +147,7 @@ right around the corner of this tag ;)
   <div id='ng-quote' class='step' data-x="1000" data-y="-1000" data-z="20000" data-rotate="90" data-scale="3">
     <p><q>&ldquo;When coding Angular,<br/>
       you&rsquo;re coding <strong>JavaScript</string>.</q></p>
-    <p style='margin-top:10px'><q>It&rsquo;s essential to understand its quirks
+    <p style='margin-top:10px'><q>It&rsquo;s essential to understand its <a href="http://www.nczonline.net/blog/2010/01/26/answering-baranovskiys-javascript-quiz/" target="_blank">quirks</a>
           when developing large scale applications&rdquo;</q></p>
   </div>
 
@@ -172,7 +172,7 @@ right around the corner of this tag ;)
       <li>Easy to learn</li>
       <li>Interpreted Language (no need to compile)</li>
       <li>It&rsquo;s a <a href="http://blog.sklambert.com/javascript-prototype/" target="_blank">Prototype-Based</a> Language</li>
-      <li>It&rsquo;s <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank">Object Oriented</a></li>
+      <li>It&rsquo;s <a href="https://leanpub.com/oopinjavascript" target="_blank">Object Oriented</a></li>
       <li>It&rsquo;s <a href="http://css.dzone.com/news/understanding-loose-typing-jav" target="_blank">Loosely Typed</a></li>
       <li>Tools are getting better</li>
       <li>Very fast and powerful</li>
@@ -186,10 +186,10 @@ right around the corner of this tag ;)
     <ul class='normal-list'>
       <li>Implied Globals</li>
       <li>Understanding how <b>this</b> works</li>
-      <li>Understanding how <b>hoisting</b> and <b>scoping</b> works
+      <li>Understanding how <b>hoisting</b> works</li>
+      <li>Understanding how <b>scoping</b> works</li>
         <li>Automatic semicolon insertion (<a href="http://bclary.com/2004/11/07/#a-7.9.1" target="_blank">ASI</a>)</li>
-        <li>Type of NaN is "number"?</li>
-        <li>Type of null is "object"?</li>
+        <li>Types are misleading. Type of null is "object"?</li>
         <li>and <a href="http://darkhelmet.github.io/javascript-the-bad-parts/" title="JavaScript the Bad Parts" target="_blank">more</a></li>
       </ul>
   </div>
@@ -201,6 +201,7 @@ right around the corner of this tag ;)
       <li><a href="https://www.acmi.net.au/media/12347/javascript_the_good_parts.pdf" title="JavaScript the Good Parts" target="_blank">JavaScript the Good Parts by Douglas Crockford</a></li>
       <li><a href="http://www.smashingmagazine.com/2010/04/20/seven-javascript-things-i-wish-i-knew-much-earlier-in-my-career/" target="_blank" title="Things I wish I knew much earlier">Things I wish I knew much earlier [about JavaScript]</a></li>
       <li><a href="http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html" title="Scoping and Hoisting" target="_blank">JavaScript Scoping and Hoisting</a></li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank">Introduction to Object Oriented JavaScript</a></li>
     </ul>
   </div>
 
@@ -235,8 +236,10 @@ right around the corner of this tag ;)
       <li>A <b>Deferred</b> is an object that has work, which is not yet finished.</li>
     </ul>
     <p>In JavaScript, these allow for asynchronous code to be executed in parallel to the normal synchronous code.</p>
+    <img src="assets/images/deferred-diagram.png" alt="Deferred Promise"/>
+    
   </div>
-
+<!-- http://www.nczonline.net/blog/2010/01/05/interviewing-the-front-end-engineer/ -->
   <!--
 
   Here is where interesting thing start to happen.
