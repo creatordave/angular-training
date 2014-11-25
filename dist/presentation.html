@@ -346,6 +346,36 @@ right around the corner of this tag ;)
   </div>
 
 
+  <div id='what-the-heck-is-a-controller' class='step slide' data-x='37000' data-y='20000' data-z='-50000' data-rotate='-90'>
+    <h3 class='medium-font-size'>Controllers</h3>
+    <ul class='normal-list'>
+      <li>Facilitate data handling between views and services.</li>
+      <li>Should be used to a minimum.</li>
+      <li>Should not contain any logic, unles it&rsquo;s UI related.</li>
+    </ul>
+    <div data-ng-controller='myAwesomeController'>
+      <button data-ng-click='buttonClicked()'>{{buttonValue}}</button>
+    </div>
+    <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em'>
+      <script>
+        angular.module('myAwesomeApp',[])
+          .controller('myAwesomeController', ['$scope', function($scope){
+            $scope.buttonValue = 'Click Me';
+
+            $scope.buttonClicked = function(){
+              $scope.buttonValue = 'You’ve just clicked me';
+            };
+          }]);
+      </script>
+
+      <div data-ng-controller='myAwesomeController'>
+        <button data-ng-click='buttonClicked()'>{{buttonValue}}</button>
+      </div>
+    </xmp>
+    <a href="http://plnkr.co/edit/QiVQXgqDsvxf5Czcy8gW?p=preview" class='slide-link' target='_blank'>Demo</a>
+  </div>
+
+
   <!-- references
   https://docs.angularjs.org/guide/bootstrap
 
@@ -619,6 +649,15 @@ is used in event handlers.
 
 <script>
   var trainingApp = angular.module('trainingApp',[]);
+
+  //what-the-heck-is-a-controller
+  trainingApp.controller('myAwesomeController', ['$scope', function($scope){
+    $scope.buttonValue = 'Click Me';
+
+    $scope.buttonClicked = function(){
+      $scope.buttonValue = 'You’ve just clicked me';
+    };
+  }]);
 
 </script>
 
