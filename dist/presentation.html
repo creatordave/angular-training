@@ -32,7 +32,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="styles/app-65a233d8.css">
+    <link rel="stylesheet" href="styles/app-fb8dd5ae.css">
 </head>
 
 <!--
@@ -197,6 +197,7 @@ right around the corner of this tag ;)
       <li><a href="http://www.smashingmagazine.com/2010/04/20/seven-javascript-things-i-wish-i-knew-much-earlier-in-my-career/" target="_blank" title="Things I wish I knew much earlier">Things I wish I knew much earlier [about JavaScript]</a></li>
       <li><a href="http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html" title="Scoping and Hoisting" target="_blank">JavaScript Scoping and Hoisting</a></li>
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank">Introduction to Object Oriented JavaScript</a></li>
+      <li>An interesting read: <a href="http://tylermcginnis.com/javascript-the-george-clooney-of-programming-languages/" target="_blank">JavaScript, the George Clooney of Programming Languages</a></li>
     </ul>
   </div>
 
@@ -375,10 +376,72 @@ right around the corner of this tag ;)
     <a href="http://plnkr.co/edit/QiVQXgqDsvxf5Czcy8gW?p=preview" class='slide-link' target='_blank'>Demo</a>
   </div>
 
+  <div id='services-and-more-services' class='step slide' data-x='37000' data-y='19000' data-z='-50000' data-rotate='-90'>
+    <h3 class='medium-font-size'>Services</h3>
+    <ul class='normal-list'>
+      <li>To help keep unnecessary logic out of controllers</li>
+      <li>Manage persistent data throughout the app&rsquo;s lifecycle</li>
+      <li>Make Angular apps more <b>Testable</b></li>
+    </ul>
+    
+    <ul class='normal-list'>
+      <li><strong>Factory</strong> &mdash; A singleton object that returns itself</li>
+      <li><strong>Service</strong> &mdash; Similar to Factory, but instantiated with &lsquo;new&rsquo; keyword.</li>
+      <li><strong>Provider</strong> &mdash; Can also be used in the <i>app.config</i> level of the application as opposed to Factories and Services</li>
+      <li><strong>Value</strong> &mdash; Simple value based service. Can be updated.</li>
+      <li><strong>Constant</strong> &mdash; Similar to value, but remains constant. Commonly used for config based values</li>
+    </ul>
+    <p class='tiny-font-size'>For more illustrative and detailed examples, visit <a href="http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/" class='slide-link' target="_blank">Tyler&rsquo;s</a> article.</p>
+  </div>
+
+  <div id='you-gotta-know-your-directives' class='step slide' data-x='37000' data-y='18000' data-z='-50000' data-rotate='-90'>
+    <h3 class='medium-font-size'>Custom Directives</h3>
+    <ul class='normal-list'>
+      <li>Useful for manipulating the DOM</li>
+      <li>Four types of custom directives
+        <ul class='normal-list tiny-font-size'>
+          <li>Element, Attribute, CSS Class, &amp; Comment</li>
+        </ul>
+      </li>
+    </ul>
+    <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em'>
+      <!-- Html: Element based custom directive -->
+      <my-custom-directive></my-custom-directive>
+    </xmp>
+    <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em'>
+      <script> <!-- JS -->
+        moduleName.directive('myCustomDirective', function(){ //NOTE: name has to be camel case
+          return {
+            restrict: 'E', //'E' (Element), 'A' (Attribute),
+            replace: true, //removes the custom element name from DOM,
+            template: "<div>This directive has been generated at: {{time_generated}}</div>"
+            link: function(scope, element, attributes){
+              var date = new Date();
+              scope.time_generated = date.getHours() + ":" + date.getMinutes();
+            }
+          }
+        });
+      </script>
+    </xmp>
+    
+  </div>
+
+  <div id="bada-bing-bada-boom" class='step slide' data-x='37000' data-y='17000' data-z='-50000' data-rotate='-90'>
+      <h3 class='medium-font-size'>Combining everything</h3>
+      <div>
+      <a href="http://plnkr.co/edit/hSDrArLYoWTOdMXA27mb?p=preview" class='slide-link' target="_blank">Demo</a>
+    </div>
+  </div>
+
+  <!-- next slide, filters, then app.run and app.config -->
 
   <!-- references
   https://docs.angularjs.org/guide/bootstrap
+http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/
 
+http://tutorials.jenkov.com/angularjs/custom-directives.html
+http://www.ng-newsletter.com/posts/directives.html
+http://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-i-the-fundamentals
   -->
 
 <!-- http://www.nczonline.net/blog/2010/01/05/interviewing-the-front-end-engineer/ -->
@@ -591,7 +654,7 @@ Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy t
 
 -->
 
-<script src="scripts/vendor-6ab6c6ad.js"></script>
+<script src="scripts/vendor-025f4693.js"></script>
 
 <script>impress().init();</script>
 

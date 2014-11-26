@@ -33,6 +33,14 @@ ul.normal-list li{
   font-size:1.5em !important;
 }
 
+.normal-font-size{
+  font-size:1em !important;
+}
+
+.small-font-size{
+  font-size:0.9em !important;
+}
+
 .tiny-font-size{
   font-size:0.8em !important;
 }
@@ -132,4 +140,20 @@ ul.normal-list li{
 .slide-link{
   color: dodgerblue !important;
   text-decoration: underline !important;
+}
+
+.large-top-spacing, .large-v-spacing, .large-spacing{
+  margin-top:2em;
+}
+
+.large-bottom-spacing, .large-v-spacing, .large-spacing{
+  margin-bottom:2em;
+}
+
+.large-left-spacing, .large-h-spacing, .large-spacing{
+  margin-left:2em;
+}
+
+.large-right-spacing, .large-h-spacing, .large-spacing{
+  margin-right:2em;
 }
