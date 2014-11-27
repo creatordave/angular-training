@@ -53,7 +53,7 @@ The class name on body element also depends on currently active presentation ste
 it can be found later, when `hint` element is being described.
 
 -->
-<body class="impress-not-supported" ng-app="trainingApp">
+<body class="impress-not-supported">
 
   <!--
   For example this fallback message is only visible when there is `impress-not-supported` class on body.
@@ -394,7 +394,7 @@ right around the corner of this tag ;)
     <p class='tiny-font-size'>For more illustrative and detailed examples, visit <a href="http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/" class='slide-link' target="_blank">Tyler&rsquo;s</a> article.</p>
   </div>
 
-  <div id='you-gotta-know-your-directives' class='step slide' data-x='37000' data-y='18000' data-z='-50000' data-rotate='-90'>
+  <div id='you-gotta-know-your-directives' class='step slide' data-x='37000' data-y='18000' data-z='-50000' data-rotate='-90' data-ng-controller="customDirectiveController">
     <h3 class='medium-font-size'>Custom Directives</h3>
     <ul class='normal-list'>
       <li>Useful for manipulating the DOM</li>
@@ -404,17 +404,25 @@ right around the corner of this tag ;)
         </ul>
       </li>
     </ul>
+    
     <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em'>
       <!-- Html: Element based custom directive -->
       <my-custom-directive></my-custom-directive>
     </xmp>
-    <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em'>
+    <div>
+      <my-custom-directive></my-custom-directive>
+    </div>
+    <div ng-if="!showOtherDirective"><button ng-click="addAnotherDirective()">Add another directive</button></div>
+    <div ng-if="showOtherDirective">
+      <my-custom-directive></my-custom-directive>
+    </div>
+    <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em;margin-top:-7px'>
       <script> <!-- JS -->
         moduleName.directive('myCustomDirective', function(){ //NOTE: name has to be camel case
           return {
             restrict: 'E', //'E' (Element), 'A' (Attribute),
             replace: true, //removes the custom element name from DOM,
-            template: "<div>This directive has been generated at: {{time_generated}}</div>"
+            template: "<div style='color:blue'>This directive has been generated at: {{time_generated}}</div>"
             link: function(scope, element, attributes){
               var date = new Date();
               scope.time_generated = date.getHours() + ":" + date.getMinutes();
@@ -426,7 +434,35 @@ right around the corner of this tag ;)
     
   </div>
 
-  <div id="bada-bing-bada-boom" class='step slide' data-x='37000' data-y='17000' data-z='-50000' data-rotate='-90'>
+  <div id="filtering-with-filters" class='step slide' data-x='37000' data-y='17000' data-z='-50000' data-rotate='-90'>
+    <h3 class='medium-font-size'>Filters</h3>
+    <q class='tiny-font-size slide-quote'>&ldquo;Selects a subset of items from array and returns it as a new array.&rdquo; &mdash; <a href="https://docs.angularjs.org/api/ng/filter/filter" target="_blank">AngularJS Docs</a></q>
+    <h4 class='tiny-font-size'>Angular Syntax</h4>
+    <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em;margin-top:-7px'>
+      {{ expression | filter }}
+    </xmp>
+    <h4 class='tiny-font-size'>Example:</h4>
+    <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em;margin-top:-7px'>
+      …
+      <li data-ng-repeat="item in list | filterNotReady"></li>
+      …
+      <script>
+        moduleName.filter('filterNotReady', function(){
+          return function(items){ //list to be filtered is passed as first parameter
+            var newList = [];
+            for (var i = 0; i < items.length; i++){
+              if (items[i].ready === false){ //if item is not ready, add it to the new list
+                newList.push(items[i]);
+              }
+            }  
+            return newList; //return new filtered list
+          }
+        });
+      </script>
+    </xmp>
+  </div>
+
+  <div id="bada-bing-bada-boom" class='step slide' data-x='37000' data-y='16000' data-z='-50000' data-rotate='-90'>
       <h3 class='medium-font-size'>Combining everything</h3>
       <div>
       <a href="http://plnkr.co/edit/hSDrArLYoWTOdMXA27mb?p=preview" class='slide-link' target="_blank">Demo</a>
@@ -438,9 +474,10 @@ right around the corner of this tag ;)
   <!-- references
   https://docs.angularjs.org/guide/bootstrap
 http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/
-
+https://egghead.io/lessons/angularjs-building-an-angular-app-controllers
 http://tutorials.jenkov.com/angularjs/custom-directives.html
 http://www.ng-newsletter.com/posts/directives.html
+https://egghead.io/lessons/angularjs-building-an-angular-app-filters
 http://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-i-the-fundamentals
   -->
 
@@ -711,6 +748,12 @@ is used in event handlers.
 </script>-->
 
 <script>
+
+  angular.element(document).ready(function(){
+    //In this case, bootstrapping is triggered right after DOM is ready
+    angular.bootstrap(document, ['trainingApp']);
+  });
+
   var trainingApp = angular.module('trainingApp',[]);
 
   //what-the-heck-is-a-controller
@@ -720,7 +763,26 @@ is used in event handlers.
     $scope.buttonClicked = function(){
       $scope.buttonValue = 'You’ve just clicked me';
     };
-  }]);
+  }])
+
+  .controller('customDirectiveController', ['$scope', function($scope){
+    $scope.showOtherDirective = false;
+    $scope.addAnotherDirective = function(){
+      $scope.showOtherDirective = true;
+    };
+  }])
+
+  .directive('myCustomDirective', function(){ //NOTE: name has to be camel case
+          return {
+            restrict: 'E', //'E' (Element), 'A' (Attribute),
+            replace: true, //removes the custom element name from DOM,
+            template: "<div style='color:blue;font-size:0.8em'>This directive has been generated at: {{time_generated}}</div>",
+            link: function(scope, element, attributes){
+              var date = new Date();
+              scope.time_generated = date.getHours() + ":" + date.getMinutes();
+            }
+          }
+        });
 
 </script>
 
