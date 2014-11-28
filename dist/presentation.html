@@ -32,7 +32,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="styles/app-fb8dd5ae.css">
+    <link rel="stylesheet" href="styles/app-70ba00dd.css">
 </head>
 
 <!--
@@ -97,6 +97,7 @@ right around the corner of this tag ;)
       <h1 class='medium-font-size'>What is it?</h1>
       <ul class='normal-list'>
         <li>Client side MV(C) framework</li>
+        <li>Works with two way binding</li>
         <li>Made of separate modules</li>
         <li>Started in 2009 with first stable version in June 2012</li>
       </ul>
@@ -184,7 +185,7 @@ right around the corner of this tag ;)
       <li>Understanding how <b>hoisting</b> works</li>
       <li>Understanding how <b>scoping</b> works</li>
         <li>Automatic semicolon insertion (<a href="http://bclary.com/2004/11/07/#a-7.9.1" target="_blank">ASI</a>)</li>
-        <li>Types are misleading. Type of null is "object"?</li>
+        <li>Type coercion</li>
         <li>and <a href="http://darkhelmet.github.io/javascript-the-bad-parts/" title="JavaScript the Bad Parts" target="_blank">more</a></li>
       </ul>
   </div>
@@ -431,7 +432,7 @@ right around the corner of this tag ;)
         });
       </script>
     </xmp>
-    
+    <a href="http://plnkr.co/edit/hSDrArLYoWTOdMXA27mb?p=preview" target="_blank" class="slide-link pull-right">Demo</a>
   </div>
 
   <div id="filtering-with-filters" class='step slide' data-x='37000' data-y='17000' data-z='-50000' data-rotate='-90'>
@@ -460,19 +461,125 @@ right around the corner of this tag ;)
         });
       </script>
     </xmp>
+    <a href="http://plnkr.co/edit/5lzBgt3qy99M9xzdY6BZ?p=preview" class='slide-link' target="_blank">Demo</a>
   </div>
 
-  <div id="bada-bing-bada-boom" class='step slide' data-x='37000' data-y='16000' data-z='-50000' data-rotate='-90'>
-      <h3 class='medium-font-size'>Combining everything</h3>
-      <div>
-      <a href="http://plnkr.co/edit/hSDrArLYoWTOdMXA27mb?p=preview" class='slide-link' target="_blank">Demo</a>
-    </div>
+  <div id="bootstrapping-levels" class='step slide' data-x='37000' data-y='16000' data-z='-50000' data-rotate='-90'>
+      <h3 class='medium-font-size'>Angular&rsquo;s .run() &amp; .config()</h3>
+      <q class='tiny-font-size slide-quote'>&ldquo;As soon as an Angular App is initialized, every module&rsquo;s <i>config</i> and <i>run</i> are executed consequentially</q>
+      <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em;margin-top:-7px'>
+        <script>
+          angularModule.module('myApp', [])
+
+            .config(function($stateProvider){
+              /*
+                Config is executed first for any configuration based code
+                Can only inject certain types of services such as:
+                - constant
+                - value
+                - provider
+              */
+            })
+
+            .run(function($state){
+              /*
+                Run function is executed last.
+                Commonly used for global values, events and functions.
+              */
+            });
+        </script>
+      </xmp>
   </div>
 
-  <!-- next slide, filters, then app.run and app.config -->
+  <div id="injecting-everything" class='step slide' data-x='37000' data-y='15000' data-z='-50000' data-rotate='-90'>
+      <h3 class='medium-font-size'>Dependency Injection</h3>
+      <div class='small-top-spacing'>
+        <h4 class='small-font-size'>Module reference</h4>
+        <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em;margin-top:-7px'>
+          <script>
+            angular.module('myFirstModule',[]);
+            angular.module('mySecondModule', []);
+            angular.module('myMainApp', ['ui.router', 'myFirstModule', 'mySecondModule']);
+            //all services in "myFirstModule" and "mySecondModule" will be available in "myMainApp" and vice versa
+            //'ui.router' is an example of a third party module
+          </script>
+        </xmp>
+        <h4 class='small-font-size'>Normal reference</h4>
+        <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em;margin-top:-7px'>
+          <script>
+            moduleName.run(function($rootScope, $state, etc){
+              //angular will identify the name of the paramter and inject accordingly
+            });
+          </script>
+        </xmp>
+        <h4 class='small-font-size'>Minification problem</h4>
+        <xmp data-ng-non-bindable style='font-size:0.5em;line-height:1.3em;margin-top:-7px'>
+          <script>
+            moduleName.run(['$rootScope', '$state', 'etc', 
+              function($rootScope, $state, etc){
+              //When minifying JS, param names can change to anything
+              //in order to keep this working, make use of this notation.
+              //final array value will be the actual function. 
+            }]);
+          </script>
+        </xmp>
+      </div>
+  </div>
+
+  <div id='important-stuff-not-mentioned' class='step' data-x='37000' data-y='14000' data-z='-50000' data-scale='0.7' data-rotate='-90'>
+    <h3 class='medium-font-size'>Other Angular topics</h3>
+    <ul class='normal-list'>
+      <li>$http</li>
+      <li>ngTemplate</li>
+      <li>$resource</li>
+      <li>$broadcast &amp; $emit</li>
+      <li>$on</li>
+      <li>Routing</li>
+      <li>Controller inheritance</li>
+      <li>Directive inheritance</li>
+    </ul>
+  </div>
+
+  <div id='debugging' data-x='38000' data-y='14000' class='step' data-z='-50000' data-rotate='0'>
+    <h3 class='medium-font-size'>Debugging tips</h3>
+    <ul class='normal-list'>
+      <li>Use console logs, not alerts</li>
+      <li>Use debugger;</li>
+      <li>$resource</li>
+      <li>Check XHR in Network tab of Chrome Dev Tools for debugging AJAX requests.</li>
+      <li>For Angular, download <a href="https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk" class='slide-link' target="_blank">Batarang</a> chrome extension</li>
+    </ul>
+  </div>
+
+  <div id='a-test-a-day-keeps-your-bugs-at-bay' data-x='40000' data-y='14000' class='step' data-z='-50000' data-rotate='0'>
+    <h3 class='medium-font-size'>Preventing bugs and errors.</h3>
+    <ul class='normal-list'>
+      <li>Run, and test your code frequently.</li>
+      <li>Write testable code.</li>
+      <li>Lint your JS</li>
+      <li><a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/" target="_blank" class="slide-link">"use strict";</a></li>
+      <li>Review each other&rsquo;s code.</li>
+    </ul>
+  </div>
+
+
+
+  <div id="bada-bing-bada-boom" class='step' data-x='25000' data-y='10000' data-z='-20000' data-scale='1.5'>
+      <h3 class='medium-font-size'>References</h3>
+      <ul class='normal-list'>
+        <li><a href="https://docs.angularjs.org/guide/bootstrap">Angular Bootstrap</a></li>
+        <li><a href="http://youtu.be/wOMLlEAqgRk">&hellip;other JavaScript gotchas</a></li>
+        <li><a href="https://egghead.io/lessons/angularjs-building-an-angular-app-controllers">Angular Controllers</a></li>
+        <li><a href="http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/">AngularJS Factory vs Service vs Provider</a></li>
+        <li><a href="http://tutorials.jenkov.com/angularjs/custom-directives.html">Custom Directives</a></li>
+        <li><a href="http://www.ng-newsletter.com/posts/directives.html">More directives</a></li>
+        <li><a href="https://egghead.io/lessons/angularjs-building-an-angular-app-filters">AngularJS Filters</a></li>
+        <li><a href="http://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-i-the-fundamentals">Angular Directives Tutorial</a></li>
+      </ul>
+  </div>
 
   <!-- references
-  https://docs.angularjs.org/guide/bootstrap
+  
 http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/
 https://egghead.io/lessons/angularjs-building-an-angular-app-controllers
 http://tutorials.jenkov.com/angularjs/custom-directives.html

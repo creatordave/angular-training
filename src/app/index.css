@@ -5,6 +5,18 @@
   padding: 0.2em 0;
 }
 
+.pull-left{
+  float:left;
+}
+
+.pull-right{
+  float:right;
+}
+
+.clear{
+  clear:both;
+}
+
 .thumbnail {
   height: 200px;
 }
@@ -156,4 +168,37 @@ ul.normal-list li{
 
 .large-right-spacing, .large-h-spacing, .large-spacing{
   margin-right:2em;
+}
+
+.medium-top-spacing, .medium-v-spacing, .medium-spacing{
+  margin-top:1.5em;
+}
+
+.medium-bottom-spacing, .medium-v-spacing, .medium-spacing{
+  margin-bottom:1.5em;
+}
+
+.medium-left-spacing, .medium-h-spacing, .medium-spacing{
+  margin-left:1.5em;
+}
+
+.medium-right-spacing, .medium-h-spacing, .medium-spacing{
+  margin-right:1.5em;
+}
+
+
+.small-top-spacing, .small-v-spacing, .small-spacing{
+  margin-top:1.2em;
+}
+
+.small-bottom-spacing, .small-v-spacing, .small-spacing{
+  margin-bottom:1.2em;
+}
+
+.small-left-spacing, .small-h-spacing, .small-spacing{
+  margin-left:1.2em;
+}
+
+.small-right-spacing, .small-h-spacing, .small-spacing{
+  margin-right:1.2em;
 }
