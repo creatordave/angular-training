@@ -21,13 +21,13 @@ angular.module('angular.third.party.module',[])
 		return this;
 	};
 
-	this.$get = function(){
+	this.$get = ['$q', function($q){
 		var defer = $q.defer();
 		setTimeout(function(){
 			defer.resolve(dataToProvide);
 		},timeout);
 		return defer.promise;
-	};
+	}];
 
 
 
