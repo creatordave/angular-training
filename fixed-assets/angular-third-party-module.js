@@ -1,6 +1,6 @@
 angular.module('angular.third.party.module',[])
 
-.provider('angThirdParty', ['$q', function($q){
+.provider('angThirdParty', function(){
 
 	var timeout = 3000,
 		dataToProvide = [
@@ -31,4 +31,4 @@ angular.module('angular.third.party.module',[])
 
 
 
-}]);
+});
