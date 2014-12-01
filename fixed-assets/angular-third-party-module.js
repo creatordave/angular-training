@@ -5,7 +5,7 @@ angular.module('angular.third.party.module',[])
 	var timeout = 3000,
 		dataToProvide = [
 			{
-				id: 235356
+				id: 235356,
 				name: "iPod 3rd Gen",
 				price: 75.5,
 				qty: 10
