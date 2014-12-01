@@ -11,7 +11,7 @@ angular.module('angular.third.party.module',[])
 				qty: 10
 			},
 			{
-				id: 634554
+				id: 634554,
 				name: "iPhone 6",
 				price: 699.99,
 				qty: 25
