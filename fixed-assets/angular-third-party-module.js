@@ -5,14 +5,33 @@ angular.module('angular.third.party.module',[])
 	var timeout = 3000,
 		dataToProvide = [
 			{
-				name: "item 1",
-				price: 2.5,
-				qty: 5
+				id: 235356
+				name: "iPod 3rd Gen",
+				price: 75.5,
+				qty: 10
 			},
 			{
-				name: "item 2",
-				price: 5.99,
-				qty: 2
+				id: 634554
+				name: "iPhone 6",
+				price: 699.99,
+				qty: 25
+			},
+			{
+				name: 'Macbook Pro 2011',
+				price: 800,
+				qty:2
+			},
+			{
+				id: 634555,
+				name: "iPhone 6 Plus",
+				price: 999.99,
+				qty: 10
+			},
+			{
+				id: 325534,
+				name: "Google Glass",
+				price: 2475,
+				qty:5
 			}
 		];
 
