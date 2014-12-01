@@ -1,3 +1,5 @@
+'use strict';
+
 console.log('Started jsExercise');
 
 /*
@@ -48,7 +50,7 @@ function identifyf(a){
 }
 
 console.log('Ex 3');
-func = identifyf(5);
+var func = identifyf(5);
 console.log(func());
 
 
@@ -62,7 +64,7 @@ addFunc(3)(5); // 8
 function addFunc(a){
   return function(b){
     return a + b;
-  }
+  };
 }
 
 console.log('Ex 4');
@@ -83,8 +85,8 @@ function applyFunc(type){
   return function(a){
     return function(b){
       return type(a,b);
-    }
-  }
+    };
+  };
 }
 
 console.log('Ex 5');
@@ -99,4 +101,3 @@ Reference: https://www.youtube.com/watch?v=hRJrp17WnOE
 Author: Douglas Crockford
 
 */
-
