@@ -63,6 +63,9 @@ this.setSpeed = function(s){
     case "ultra-fast":
       speed = 1;
     break;
+    case "random":
+      speed = Math.floor(Math.random() * 3000) + 1;
+    break;
     default:
       speed = 1000;
     break;
