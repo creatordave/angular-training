@@ -64,7 +64,7 @@ this.setSpeed = function(s){
       speed = 1;
     break;
     case "random":
-      speed = Math.floor(Math.random() * 3000) + 1;
+      speed = Math.floor(Math.random() * 1000) + 1;
     break;
     default:
       speed = 1000;
