@@ -2,7 +2,7 @@ angular.module('angular.third.party.module',[])
 
 .provider('angThirdParty', function(){
 
-	var timeout = 3000,
+	var timeout = 500,
 		dataToProvide = [
 			{
 				id: 235356,
