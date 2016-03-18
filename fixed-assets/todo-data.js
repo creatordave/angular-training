@@ -41,6 +41,7 @@ angular.module('todo-data', [])
           db = validateItem(item,'add');
           db = this.getList();
           db.push(item);
+          _updateDB(db);
         },
         update: function(item){
           db = validateItem(item, 'update');
@@ -60,8 +61,9 @@ angular.module('todo-data', [])
           var item = this.getItem(id);
           var index = db.indexOf(item);
           if (~index){
-            array.splice(index,1);
+            db.splice(index,1);
           }
+          _updateDB(db);
         }
       };
 
