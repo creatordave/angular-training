@@ -4,7 +4,11 @@ angular.module('todo-data', [])
 
     var _dbName,
         _getDB = function(){
-          return JSON.parse(localStorage.getItem(_dbName)) || [];
+          return JSON.parse(localStorage.getItem(_dbName)) || [{
+            id: 1,
+            task: "Create a todo list in angular",
+            status: "Pending"
+          }];
         },
         _updateDB = function(db){
           localStorage.setItem(_dbName, JSON.stringify(db));
@@ -31,13 +35,18 @@ angular.module('todo-data', [])
             }else{
               throw Error('[TodoService]: .'+functionName+'() expects item param as object');
             }
-          }
+          },
+          generateNewId = function(){
+            var list = _getDB();
+            return list[list.length-1].id+1;
+          };
 
       return {
         getList: function(){
           return _getDB();
         },
         add: function(item){
+          item.id = generateNewId();
           db = validateItem(item,'add');
           db = this.getList();
           db.push(item);
